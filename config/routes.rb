@@ -2,8 +2,15 @@ Rails.application.routes.draw do
   
 
   namespace :api do
-    get "/actor_by_id" => "actors#actor_by_id"
+    #actors routes
+    get "/actors/:id" => "actors#show"
 
+    get "/actors" => "actors#show"
+
+    post "/actors" => "actors#show"
+
+
+    #movies routes
     get "/all_movies" => "movies#all_movies"
 
     get "/inception" => "movies#inception"
