@@ -19,8 +19,11 @@ class Api::ActorsController < ApplicationController
       age: params[:age]
       
       )
-    @actor.save
-    render 'show.json.jbuilder'
+    if @actor.save
+      render 'show.json.jbuilder'
+    else
+      render json: {Errors: @actor.errors.full_messages}, status: :undeliverable_entity
+    end
   end
 
   def update
@@ -31,8 +34,11 @@ class Api::ActorsController < ApplicationController
     @actor.gender = params[:gender] || @actor.gender
     @actor.age = params[:age] || @actor.age
     
-    @actor.save
-    render 'show.json.jbuilder'
+    if @actor.save
+      render 'show.json.jbuilder'
+    else
+      render json: {Errors: @actor.errors.full_messages}, status: :undeliverable_entity
+    end
   end
 
   def destroy
