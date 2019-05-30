@@ -34,4 +34,10 @@ Rails.application.routes.draw do
     post "/movie_genres" => "movie_genres#create"
 
   end
+
+  #front-end routes
+  patch "/movies/:id" => "movies#update"
+  get "/movies/:id" => "movies#show"
+  get "/movies/:id/edit" => "movies#edit"
+
 end
