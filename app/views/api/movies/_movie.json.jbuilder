@@ -1,3 +1,4 @@
+json.id movie.id
 json.title movie.title
 json.year movie.year
 json.genres movie.genre_names
